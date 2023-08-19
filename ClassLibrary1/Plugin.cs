@@ -19,7 +19,7 @@ namespace Plugins
 
         private void Scp079_TriggeringDoor(Exiled.Events.EventArgs.Scp079.TriggeringDoorEventArgs ev)
         {
-            
+            //45454g434434343
         }
 
         private void Scp079_LockingDown(Exiled.Events.EventArgs.Scp079.LockingDownEventArgs ev)
