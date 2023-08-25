@@ -39,7 +39,7 @@ namespace Task2
 
         private void Player_Dying(Exiled.Events.EventArgs.Player.DyingEventArgs ev)
         {
-            if (ev.Attacker != Server.Host) PlayerKills[ev.Player.Nickname] += 1;
+            if (ev.Attacker != Server.Host) PlayerKills[ev.Attacker.Nickname] += 1;
         }
 
         private void Player_TriggeringTesla(Exiled.Events.EventArgs.Player.TriggeringTeslaEventArgs ev)
