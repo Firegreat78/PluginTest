@@ -1,6 +1,7 @@
 ﻿using CommandSystem;
 using Exiled.API.Features;
 using System;
+using System.Linq;
 
 namespace Plugins
 {
@@ -9,7 +10,7 @@ namespace Plugins
     {
         public string Command => "changenick";
         public string[] Aliases => new string[] {"nick"};
-        public string Description => "Изменить ник на сервере. Синтаксис: .nick [новый_никнейм]. Пример: \".nick Мой_новый_никнейм\" -> Новый ник после выполнения команды: \"Мой новый никнейм\"";
+        public string Description => "Изменить ник на сервере.\nИспользование: .nick [новый_никнейм].";
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             if (arguments.Count != 1)
@@ -18,7 +19,7 @@ namespace Plugins
                 return false;
             }
             var player = Player.Get(sender);
-            var nick = arguments.Array[1].Replace('_', ' ');
+            var nick = String.Join(" ", arguments);
             player.CustomName = nick;
             response = $"Successfully changed nickname to {nick}.";
             return true;

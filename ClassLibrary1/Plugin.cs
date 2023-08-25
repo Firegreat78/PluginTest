@@ -1,5 +1,6 @@
 ﻿using Exiled.API.Features;
 using Exiled.API.Enums;
+using System.Collections.Generic;
 
 namespace Plugins
 {
@@ -14,6 +15,7 @@ namespace Plugins
             Exiled.Events.Handlers.Warhead.Detonated += Warhead_Detonated;
             Exiled.Events.Handlers.Player.Spawned += Player_Spawned;
         }
+
         private void Player_Spawned(Exiled.Events.EventArgs.Player.SpawnedEventArgs ev)
         {
             if (ev.Player.Role.Type == PlayerRoles.RoleTypeId.Scientist)
@@ -23,6 +25,7 @@ namespace Plugins
                 ev.Player.AddAmmo(AmmoType.Nato9, 100);
             }
         }
+
         private void Warhead_Detonated()
         {
             foreach (var player in Player.List) player.Kill(DamageType.Warhead);
